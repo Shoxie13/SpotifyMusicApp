@@ -1,0 +1,58 @@
+<!-- 
+/*********************************************************************************/
+* WEB422 – Assignment 04 *
+I declare that this assignment is my own work in accordance with Seneca Academic Policy.
+No part of this * assignment has been copied manually or electronically from any other source (including web sites) or * distributed to other students. *
+* Name: Tareq Abdi Student ID: 123809196 Date: 10/07/2021 *
+/********************************************************************************/
+-->
+
+<mat-card
+  ><mat-card-title>New Releases</mat-card-title>
+  <mat-card-subtitle
+    >The following is a list of new releases.<br />Click the
+    <strong>album cover</strong> or <strong>artist name</strong> for more
+    information.</mat-card-subtitle
+  ></mat-card
+>
+
+<div class="content">
+  <div fxFlex fxLayout="row wrap" fxLayout.xs="column">
+    <div
+      fxFlex
+      [style.margin]="'20px'"
+      *ngFor="let obj of releases"
+      [attr.data-index]="obj.id"
+    >
+      <!-- Single "Responsive" Card-->
+      <div fxFlex>
+        <mat-card [style.min-width]="'200px'">
+          <mat-card-header>
+            <mat-card-title>{{ obj.name }}</mat-card-title>
+            <mat-card-subtitle>New Release</mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            class="album-cover"
+            src="{{ obj.images[0].url }}"
+            alt="album art"
+            routerLink="/album/{{ obj.id }}"
+          />
+          <strong>Release Date: </strong>{{ obj.release_date }}<br />
+          <strong>Tracks: </strong>{{ obj.total_tracks }}<br /><br />
+
+          <mat-card-content>
+            <mat-chip-list aria-label="Artist selection">
+              <div *ngFor="let art of obj.artists" [attr.data-index]="art.id">
+                <mat-chip routerLink="/artist/{{ art.id }}">{{
+                  art.name
+                }}</mat-chip>
+              </div>
+            </mat-chip-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- -->
+    </div>
+  </div>
+</div>

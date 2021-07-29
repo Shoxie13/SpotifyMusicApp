@@ -1,0 +1,51 @@
+<!-- 
+/*********************************************************************************/
+* WEB422 – Assignment 05 *
+I declare that this assignment is my own work in accordance with Seneca Academic Policy.
+No part of this * assignment has been copied manually or electronically from any other source (including web sites) or * distributed to other students. *
+* Name: Tareq Abdi Student ID: 123809196 Date: 28/07/2021 *
+/********************************************************************************/
+-->
+
+<mat-card
+  ><mat-card-title>{{ artists?.name }}</mat-card-title>
+  <mat-card-subtitle
+    >Full discography for {{ artists?.name }}<br />Click the
+    <strong>album cover</strong> for more information.</mat-card-subtitle
+  ></mat-card
+>
+<br />
+
+<mat-card
+  [style.background]="
+    'url(' + artists.images[0].url + ')  no-repeat center center'
+  "
+  [style.background-size]="'cover'"
+  [style.height]="'450px'"
+>
+</mat-card>
+<br /><br />
+<h1>Full Discography</h1>
+
+<div fxLayout="row wrap" fxLayout.xs="column">
+  <div fxFlex [style.margin]="'20px'" *ngFor="let alb of albums">
+    <div fxFlex>
+      <mat-card [style.min-width]="'200px'">
+        <mat-card-header>
+          <mat-card-title>{{ alb?.name }}</mat-card-title>
+          <mat-card-subtitle>Album Title</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          class="album-cover"
+          src="{{ alb.images[0]?.url }}"
+          alt="album art"
+          routerLink="/album/{{ alb.id }}"
+        />
+        <strong>Release Date: </strong
+        >{{ datepipe.transform(alb.release_date, "M/d/yy") }}<br />
+        <strong>Tracks: </strong>{{ alb.total_tracks }}
+      </mat-card>
+    </div>
+  </div>
+</div>
