@@ -6,7 +6,7 @@
     </button>
 
     <a class="navbar-brand" matTooltip="Home">
-      <h1>{{ title }}</h1>
+      <h1>Seneca Music</h1>
     </a>
 
     <span class="navbar-spacer"></span>
@@ -38,20 +38,18 @@
       fixedTopGap="56"
     >
       <mat-nav-list>
-        <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Artist</mat-label>
-            <form (ngSubmit)="handleSearch()">
-              <input
-                matInput
-                type="text"
-                name="searchString"
-                [(ngModel)]="searchString"
-              />
-            </form>
-            <mat-icon matSuffix>search</mat-icon>
-          </mat-form-field>
-        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Artist</mat-label>
+          <form (ngSubmit)="handleSearch()">
+            <input
+              matInput
+              type="text"
+              name="searchString"
+              [(ngModel)]="searchString"
+            />
+          </form>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
 
         <a mat-list-item routerLink="/newReleases" routerLinkActive="active">
           <mat-icon mat-list-icon> library_music </mat-icon>

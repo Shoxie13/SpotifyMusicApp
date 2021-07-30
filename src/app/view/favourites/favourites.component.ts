@@ -36,6 +36,6 @@ export class FavouritesComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.favSub.unsubscribe();
+    this.favSub?.unsubscribe();
   }
 }

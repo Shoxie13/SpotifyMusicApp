@@ -46,6 +46,8 @@ import { FavouritesComponent } from './view/favourites/favourites.component';
     FavouritesComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     MatExpansionModule,
     MatIconModule,
     MatSidenavModule,
@@ -64,9 +66,7 @@ import { FavouritesComponent } from './view/favourites/favourites.component';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     HttpClientModule,
-    FormsModule,
     MatSnackBarModule,
-    ReactiveFormsModule,
   ],
   providers: [MusicDataService, SpotifyTokenService],
   bootstrap: [AppComponent],

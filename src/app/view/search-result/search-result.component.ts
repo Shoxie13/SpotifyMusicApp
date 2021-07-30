@@ -23,9 +23,9 @@ export class SearchResultComponent implements OnInit {
   constructor(private route: ActivatedRoute, private mds: MusicDataService) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
-      this.searchQuery = params['q'];
-    });
+    this.route.queryParams.subscribe(
+      (params) => (this.searchQuery = params['q'])
+    );
 
     this.resultSub = this.mds
       .searchArtists(this.searchQuery)
@@ -33,11 +33,10 @@ export class SearchResultComponent implements OnInit {
         this.results = data.artists.items.filter((i: any) => {
           return i.images.length > 0;
         });
-        //TO DO: FILTER THE OUTPUT THEN ASSIGN -- DONE
       });
   }
 
   ngOnDestroy() {
-    this.resultSub.unsubscribe();
+    this.resultSub?.unsubscribe();
   }
 }

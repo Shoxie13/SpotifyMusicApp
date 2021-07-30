@@ -10,13 +10,13 @@ import { SearchResultComponent } from './view/search-result/search-result.compon
 import { FavouritesComponent } from './view/favourites/favourites.component';
 
 const routes: Routes = [
+  { path: 'search', component: SearchResultComponent },
   { path: 'favourites', component: FavouritesComponent },
   { path: 'newReleases', component: NewReleasesComponent },
-  { path: '', redirectTo: 'newReleases', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'album/:id', component: AlbumComponent },
   { path: 'artist/:id', component: ArtistDiscographyComponent },
-  { path: 'search', component: SearchResultComponent },
+  { path: '', redirectTo: 'newReleases', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];
 
