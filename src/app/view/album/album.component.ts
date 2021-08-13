@@ -36,9 +36,18 @@ export class AlbumComponent implements OnInit {
   }
 
   addToFavourites(track: any) {
-    if (this.mds.addToFavourites(track)) {
-      this.snackBar.open('Adding to Favourites...', 'Done', { duration: 1500 });
-    }
+    this.mds.addToFavourites(track).subscribe(
+      (data) => {
+        this.snackBar.open('Adding to Favourites...', 'Done', {
+          duration: 1500,
+        });
+      },
+      (err) => {
+        this.snackBar.open('Unable to add song to Favourites!', 'Done', {
+          duration: 1500,
+        });
+      }
+    );
   }
 
   ngOnDestroy() {
