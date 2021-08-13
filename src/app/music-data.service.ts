@@ -73,17 +73,7 @@ export class MusicDataService {
     );
   }
 
-  // addToFavourites(id: any): boolean {
-  //   if (id === null || this.favouriteList.length > 50) {
-  //     return false;
-  //   } else {
-  //     this.favouriteList.push(id);
-  //     return true;
-  //   }
-  // }
-
   addToFavourites(id: any): Observable<any> {
-    // TODO: make a PUT request to environment.userAPIBase/favourites/:id to add id to favourites
     return this.http.put<[any]>(
       `${environment.userAPIBase}/favourites/${id}`,
       {}
